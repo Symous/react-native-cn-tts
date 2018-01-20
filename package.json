@@ -1,14 +1,24 @@
 {
   "name": "react-native-cn-tts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React Native TTS for Chinese",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "tts"
+    "tts",
+    "text-to-speech",
+    "chinese tts"
   ],
   "author": "symous",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Symous/react-native-cn-tts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Symous/react-native-cn-tts/issues"
+  },
+  "homepage": "https://github.com/Symous/react-native-cn-tts#readme"
 }
