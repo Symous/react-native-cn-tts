@@ -26,7 +26,12 @@ cntts.init(appID,apiKey,secretKey).then(()=>{
 }).catch((e)=>{
   //注册失败
 })
-
 ```
+
+## 方法
+* speak(text)
+* stop()
+* pause()
+* resume()
 
 
