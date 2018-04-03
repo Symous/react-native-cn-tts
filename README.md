@@ -26,6 +26,11 @@ cntts.init(appID,apiKey,secretKey).then(()=>{
 }).catch((e)=>{
   //注册失败
 })
+
+cntts.addEventListener('tts-finish', () => {});
+cntts.addEventListener('tts-cancel', () => {});
+cntts.addEventListener('tts-start', (event) => {});
+cntts.addEventListener('tts-progress', (event) => {});
 ```
 
 ## 方法
@@ -33,5 +38,6 @@ cntts.init(appID,apiKey,secretKey).then(()=>{
 * stop()
 * pause()
 * resume()
+* addEventListener()
 
 

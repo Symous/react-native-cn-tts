@@ -23,11 +23,15 @@ public class BaiduTTS implements SpeechSynthesizerListener{
 
     String textFile = "bd_etts_ch_text.dat";
     String speechFile = "bd_etts_ch_speech_female.dat";
+    TTSModule ttsModule;
     //String appId = "10716869",apiKey="5xuBepa3nHKnNhygRi0HfHlp",secKey="e0ee91d8555e2b15a64110d8c4440d74";
     // 语音合成客户端
     private SpeechSynthesizer mSpeechSynthesizer;
     String path = Environment.getExternalStorageDirectory().toString()+"/CNTTS/语音文件/";
-    public BaiduTTS(Context context) throws IOException {
+
+    private SpeechSynthesizerListener callBack;
+
+    public BaiduTTS(Context context, SpeechSynthesizerListener callBack) throws IOException {
 
         if(!new File(path+textFile).exists() || !new File(path+speechFile).exists()){
             copySpeechFileFromAssert(context,"data",path);
@@ -45,6 +49,7 @@ public class BaiduTTS implements SpeechSynthesizerListener{
         mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_SPEECH_MODEL_FILE, path+speechFile);
         // 设置语音合成声音授权文件
         //mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_LICENCE_FILE, "your_licence_path");
+        this.callBack = callBack;
     }
 
     public void speak(String content){
@@ -77,32 +82,32 @@ public class BaiduTTS implements SpeechSynthesizerListener{
 
     @Override
     public void onSynthesizeStart(String s) {
-
+        callBack.onSynthesizeStart(s);
     }
 
     @Override
     public void onSynthesizeDataArrived(String s, byte[] bytes, int i) {
-
+        callBack.onSynthesizeDataArrived(s, bytes, i);
     }
 
     @Override
     public void onSynthesizeFinish(String s) {
-
+        callBack.onSynthesizeFinish(s);
     }
 
     @Override
     public void onSpeechStart(String s) {
-
+        callBack.onSpeechStart(s);
     }
 
     @Override
     public void onSpeechProgressChanged(String s, int i) {
-
+        callBack.onSpeechProgressChanged(s, i);
     }
 
     @Override
     public void onSpeechFinish(String s) {
-
+        callBack.onSpeechFinish(s);
     }
 
     @Override
